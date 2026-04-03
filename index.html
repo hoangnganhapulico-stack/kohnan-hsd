@@ -1,120 +1,109 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="vi">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.4">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>KOHNAN - KIỂM TRA HSD</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: sans-serif; background-color: #f0f2f5; display: flex; justify-content: center; padding: 10px; margin: 0; }
+        .app-container { width: 100%; max-width: 500px; background: white; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); overflow: hidden; margin-top: 20px; }
+        .header { background: linear-gradient(135deg, #e11d48 0%, #be123c 100%); color: white; padding: 20px; text-align: center; }
+        .card-body { padding: 20px; }
+        .input-group { margin-bottom: 15px; }
+        label { display: block; font-size: 0.875rem; font-weight: 600; color: #374151; margin-bottom: 5px; text-transform: uppercase; }
+        input, select { width: 100%; padding: 12px; border: 2px solid #e5e7eb; border-radius: 10px; font-size: 1rem; outline: none; transition: border-color 0.2s; box-sizing: border-box; }
+        input:focus { border-color: #e11d48; }
+        .btn-calc { background-color: #e11d48; color: white; width: 100%; padding: 16px; border-radius: 12px; font-weight: bold; font-size: 1.1rem; margin-top: 10px; border: none; cursor: pointer; box-shadow: 0 4px 6px rgba(225, 29, 72, 0.2); }
+        .btn-calc:active { transform: scale(0.98); }
+        #result { margin-top: 20px; padding: 20px; border-radius: 15px; display: none; text-align: center; animation: fadeIn 0.3s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .status-pass { background-color: #dcfce7; color: #166534; border: 2px solid #22c55e; }
+        .status-fail { background-color: #fee2e2; color: #991b1b; border: 2px solid #ef4444; }
+        .status-expired { background-color: #111827; color: white; border: 2px solid #000; }
+    </style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="vi"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;KOHNAN - KIỂM TRA HSD&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>body { font-family: sans-serif; background-color: #f0f2f5; display: flex; justify-content: center; padding: 10px; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.app-container { width: 100%; max-width: 500px; background: white; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); overflow: hidden; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.header { background: linear-gradient(135deg, #e11d48 0%, #be123c 100%); color: white; padding: 20px; text-align: center; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.card-body { padding: 20px; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.input-group { margin-bottom: 15px; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>label { display: block; font-size: 0.875rem; font-weight: 600; color: #374151; margin-bottom: 5px; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>input, select { width: 100%; padding: 12px; border: 1px solid #d1d5db; border-radius: 10px; font-size: 1rem; outline: none; transition: border-color 0.2s; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>input:focus { border-color: #e11d48; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.btn-calc { background-color: #e11d48; color: white; width: 100%; padding: 15px; border-radius: 12px; font-weight: bold; font-size: 1.1rem; margin-top: 10px; transition: opacity 0.2s; border: none; cursor: pointer; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>#result { margin-top: 20px; padding: 20px; border-radius: 15px; display: none; text-align: center; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.status-pass { background-color: #dcfce7; color: #166534; border: 2px solid #22c55e; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.status-fail { background-color: #fee2e2; color: #991b1b; border: 2px solid #ef4444; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.status-expired { background-color: #374151; color: white; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="app-container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="header"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h1 class="text-2xl font-bold"&gt;KOHNAN PARC MALL&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-xs opacity-80 uppercase tracking-widest mt-1"&gt;Kiểm tra HSD nhận hàng&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card-body"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="input-group"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;label&gt;LOẠI HÀNG HÓA&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;select id="type"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;option value="vn"&gt;Hàng Việt Nam (Yêu cầu &gt; 65%)&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;option value="im"&gt;Hàng Nhập Khẩu (Yêu cầu &gt; 50%)&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/select&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="input-group"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;label&gt;NGÀY SẢN XUẤT (NSX)&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;input type="date" id="mfgDate"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="input-group"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;label&gt;NGÀY HẾT HẠN (HSD)&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;input type="date" id="expDate"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="btn-calc" onclick="calculateHSD()"&gt;KIỂM TRA KẾT QUẢ&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="result"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div id="res-status" class="text-2xl font-black mb-2"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div id="res-detail" class="text-sm"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="bg-gray-50 p-4 text-center text-[10px] text-gray-400 font-bold"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>KOHNAN VIETNAM - INTERNAL TOOL</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>function calculateHSD() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const mfgDateVal = document.getElementById('mfgDate').value;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const expDateVal = document.getElementById('expDate').value;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const type = document.getElementById('type').value;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const resDiv = document.getElementById('result');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const resStatus = document.getElementById('res-status');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const resDetail = document.getElementById('res-detail');</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (!mfgDateVal || !expDateVal) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>alert("Vui lòng nhập đầy đủ ngày NSX và HSD!");</p>
-<p class="p1"><span class="Apple-converted-space">                </span>return;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>const mfg = new Date(mfgDateVal);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const exp = new Date(expDateVal);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const today = new Date();</p>
-<p class="p1"><span class="Apple-converted-space">            </span>today.setHours(0, 0, 0, 0);</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (exp &lt;= mfg) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>alert("Ngày hết hạn phải sau ngày sản xuất!");</p>
-<p class="p1"><span class="Apple-converted-space">                </span>return;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>const totalLife = exp - mfg;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const remainingLife = exp - today;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const percentage = (remainingLife / totalLife) * 100;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const required = (type === 'vn') ? 65 : 50;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>resDiv.style.display = 'block';</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (remainingLife &lt;= 0) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>resDiv.className = "status-expired";</p>
-<p class="p1"><span class="Apple-converted-space">                </span>resStatus.innerText = "🚨 QUÁ HẠN";</p>
-<p class="p1"><span class="Apple-converted-space">                </span>resDetail.innerText = "Hàng đã hết hạn sử dụng. Không được nhận.";</p>
-<p class="p1"><span class="Apple-converted-space">            </span>} else if (percentage &gt;= required) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>resDiv.className = "status-pass";</p>
-<p class="p1"><span class="Apple-converted-space">                </span>resStatus.innerText = "✅ ĐẠT (NHẬN)";</p>
-<p class="p1"><span class="Apple-converted-space">                </span>resDetail.innerHTML = `Tỉ lệ HSD còn lại: &lt;b&gt;${percentage.toFixed(1)}%&lt;/b&gt;&lt;br&gt;(Yêu cầu tối thiểu: ${required}%)`;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>} else {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>resDiv.className = "status-fail";</p>
-<p class="p1"><span class="Apple-converted-space">                </span>resStatus.innerText = "❌ KHÔNG ĐẠT (TRẢ)";</p>
-<p class="p1"><span class="Apple-converted-space">                </span>resDetail.innerHTML = `Tỉ lệ HSD còn lại: &lt;b&gt;${percentage.toFixed(1)}%&lt;/b&gt;&lt;br&gt;(Thấp hơn yêu cầu: ${required}%)`;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+    <div class="app-container">
+        <div class="header">
+            <h1 class="text-2xl font-bold">KOHNAN PARC MALL</h1>
+            <p class="text-xs opacity-90 uppercase tracking-widest mt-1 font-semibold">Công cụ Kiểm tra HSD</p>
+        </div>
+        <div class="card-body">
+            <div class="input-group">
+                <label>1. Chọn loại hàng hóa</label>
+                <select id="type">
+                    <option value="vn">Hàng Việt Nam (Nhận > 65%)</option>
+                    <option value="im">Hàng Nhập Khẩu (Nhận > 50%)</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label>2. Ngày Sản Xuất (NSX)</label>
+                <input type="date" id="mfgDate">
+            </div>
+            <div class="input-group">
+                <label>3. Ngày Hết Hạn (HSD)</label>
+                <input type="date" id="expDate">
+            </div>
+            <button class="btn-calc" onclick="calculateHSD()">PHÂN TÍCH KẾT QUẢ</button>
+            <div id="result">
+                <div id="res-status" class="text-2xl font-black mb-2"></div>
+                <div id="res-detail" class="text-sm font-medium"></div>
+                <div id="res-date-final" class="text-[10px] mt-3 opacity-60 font-bold uppercase"></div>
+            </div>
+        </div>
+        <div class="bg-gray-50 py-4 text-center text-[10px] text-gray-400 font-bold tracking-tighter">
+            WAREHOUSE SYSTEM - KOHNAN VIETNAM
+        </div>
+    </div>
+
+    <script>
+        function calculateHSD() {
+            const mfgDateVal = document.getElementById('mfgDate').value;
+            const expDateVal = document.getElementById('expDate').value;
+            const type = document.getElementById('type').value;
+            const resDiv = document.getElementById('result');
+            const resStatus = document.getElementById('res-status');
+            const resDetail = document.getElementById('res-detail');
+            const resDateFinal = document.getElementById('res-date-final');
+
+            if (!mfgDateVal || !expDateVal) {
+                alert("Vui lòng nhập đầy đủ Ngày Sản Xuất và Ngày Hết Hạn!");
+                return;
+            }
+
+            const mfg = new Date(mfgDateVal);
+            const exp = new Date(expDateVal);
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+
+            if (exp <= mfg) {
+                alert("Lỗi: Ngày hết hạn phải sau ngày sản xuất!");
+                return;
+            }
+
+            const totalLife = exp - mfg;
+            const remainingLife = exp - today;
+            const percentage = (remainingLife / totalLife) * 100;
+            const required = (type === 'vn') ? 65 : 50;
+
+            resDiv.style.display = 'block';
+            resDateFinal.innerText = "Hết hạn vào: " + exp.toLocaleDateString('vi-VN');
+
+            if (remainingLife < 0) {
+                resDiv.className = "status-expired";
+                resStatus.innerText = "🚨 HẾT HẠN";
+                resDetail.innerText = "Hàng đã quá hạn sử dụng. Tuyệt đối không nhận.";
+            } else if (percentage >= required) {
+                resDiv.className = "status-pass";
+                resStatus.innerText = "✅ NHẬN HÀNG";
+                resDetail.innerHTML = `Tỉ lệ HSD còn lại: <b>${percentage.toFixed(1)}%</b><br>(Đủ điều kiện nhập kho)`;
+            } else {
+                resDiv.className = "status-fail";
+                resStatus.innerText = "❌ TRẢ HÀNG";
+                resDetail.innerHTML = `Tỉ lệ còn <b>${percentage.toFixed(1)}%</b> (Yêu cầu > ${required}%)<br>Vui lòng từ chối nhận hàng.`;
+            }
+        }
+    </script>
 </body>
 </html>
