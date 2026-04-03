@@ -15,239 +15,105 @@
 <p class="p1">&lt;!DOCTYPE html&gt;</p>
 <p class="p1">&lt;html lang="vi"&gt;</p>
 <p class="p1">&lt;head&gt;</p>
-<p class="p1">&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1">&lt;title&gt;KOHNAN - Kiểm tra HSD&lt;/title&gt;</p>
-<p class="p1">&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</p>
-<p class="p1">&lt;link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"&gt;</p>
-<p class="p1">&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>body {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>font-family: 'Roboto', sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>background-color: #f0f2f5;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>justify-content: center;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>padding: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.app-container {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>max-width: 500px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>background: white;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>border-radius: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>box-shadow: 0 10px 25px rgba(0,0,0,0.1);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>overflow: hidden;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.header {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>background: linear-gradient(135deg, #e11d48 0%, #be123c 100%);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>padding: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.card-body {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>padding: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.input-group {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>margin-bottom: 15px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>label {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>display: block;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>font-size: 0.875rem;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>font-weight: 500;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>color: #374151;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>margin-bottom: 5px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>input, select {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>padding: 12px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>border: 1px solid #d1d5db;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>border-radius: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>font-size: 1rem;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>outline: none;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>transition: border-color 0.2s;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>input:focus {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>border-color: #e11d48;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.btn-calc {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>background-color: #e11d48;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>padding: 15px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>border-radius: 12px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>font-weight: bold;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>font-size: 1.1rem;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>margin-top: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>transition: opacity 0.2s;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.btn-calc:active {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>opacity: 0.8;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>#result-box {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>margin-top: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>padding: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>border-radius: 15px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>display: none;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.pass { background-color: #dcfce7; color: #166534; border: 2px solid #22c55e; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.fail { background-color: #fee2e2; color: #991b1b; border: 2px solid #ef4444; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.expired { background-color: #1f2937; color: white; }</p>
-<p class="p2"><span class="Apple-converted-space">    </span></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.radio-group {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>gap: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>background: #f3f4f6;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>padding: 5px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>border-radius: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>margin-bottom: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.radio-option {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>flex: 1;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>padding: 8px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>cursor: pointer;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>border-radius: 8px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>font-size: 0.8rem;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>font-weight: 500;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.radio-option.active {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>background: white;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>box-shadow: 0 2px 4px rgba(0,0,0,0.1);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>color: #e11d48;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1">&lt;/style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;KOHNAN - KIỂM TRA HSD&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body { font-family: sans-serif; background-color: #f0f2f5; display: flex; justify-content: center; padding: 10px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.app-container { width: 100%; max-width: 500px; background: white; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); overflow: hidden; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.header { background: linear-gradient(135deg, #e11d48 0%, #be123c 100%); color: white; padding: 20px; text-align: center; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.card-body { padding: 20px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.input-group { margin-bottom: 15px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>label { display: block; font-size: 0.875rem; font-weight: 600; color: #374151; margin-bottom: 5px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>input, select { width: 100%; padding: 12px; border: 1px solid #d1d5db; border-radius: 10px; font-size: 1rem; outline: none; transition: border-color 0.2s; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>input:focus { border-color: #e11d48; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-calc { background-color: #e11d48; color: white; width: 100%; padding: 15px; border-radius: 12px; font-weight: bold; font-size: 1.1rem; margin-top: 10px; transition: opacity 0.2s; border: none; cursor: pointer; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>#result { margin-top: 20px; padding: 20px; border-radius: 15px; display: none; text-align: center; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.status-pass { background-color: #dcfce7; color: #166534; border: 2px solid #22c55e; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.status-fail { background-color: #fee2e2; color: #991b1b; border: 2px solid #ef4444; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.status-expired { background-color: #374151; color: white; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
 <p class="p1">&lt;/head&gt;</p>
 <p class="p1">&lt;body&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;div class="app-container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="header"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h1 class="text-xl font-bold uppercase tracking-tight"&gt;Kohnan Receiving&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="text-xs opacity-90"&gt;Công cụ kiểm tra tỷ lệ Hạn Sử Dụng&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="card-body"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Loại hàng --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="input-group"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;label&gt;Loại Hàng Hóa&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;select id="item-type"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;option value="vn"&gt;Sản xuất tại VN (Yêu cầu &gt; 65%)&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;option value="import"&gt;Hàng Nhập khẩu (Yêu cầu &gt; 50%)&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="app-container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="header"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h1 class="text-2xl font-bold"&gt;KOHNAN PARC MALL&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-xs opacity-80 uppercase tracking-widest mt-1"&gt;Kiểm tra HSD nhận hàng&lt;/p&gt;</p>
 <p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- NSX --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="input-group"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;label&gt;Ngày Sản Xuất (NSX)&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="date" id="date-mfg"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Mode HSD --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;label&gt;Thông tin Hạn Sử Dụng&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="radio-group" id="mode-selector"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="radio-option active" onclick="setMode('date')" id="opt-date"&gt;Ngày hết hạn (EXP)&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="radio-option" onclick="setMode('duration')" id="opt-duration"&gt;Thời hạn (Tháng/Năm)&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Input HSD --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="input-group" id="input-exp-date"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="date" id="date-exp"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="input-group hidden" id="input-exp-duration"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="flex gap-2"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;input type="number" id="duration-val" placeholder="Nhập số" class="w-2/3"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;select id="duration-unit" class="w-1/3"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;option value="months"&gt;Tháng&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;option value="years"&gt;Năm&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="input-group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;label&gt;LOẠI HÀNG HÓA&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;select id="type"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;option value="vn"&gt;Hàng Việt Nam (Yêu cầu &gt; 65%)&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;option value="im"&gt;Hàng Nhập Khẩu (Yêu cầu &gt; 50%)&lt;/option&gt;</p>
 <p class="p1"><span class="Apple-converted-space">                </span>&lt;/select&gt;</p>
 <p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="input-group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;label&gt;NGÀY SẢN XUẤT (NSX)&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;input type="date" id="mfgDate"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="input-group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;label&gt;NGÀY HẾT HẠN (HSD)&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;input type="date" id="expDate"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="btn-calc" onclick="calculateHSD()"&gt;KIỂM TRA KẾT QUẢ&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="result"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div id="res-status" class="text-2xl font-black mb-2"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div id="res-detail" class="text-sm"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
 <p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;button onclick="checkHSD()" class="btn-calc"&gt;KIỂM TRA NGAY&lt;/button&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Kết quả --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="result-box"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="result-status" class="text-2xl font-black mb-1"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="result-detail" class="text-sm"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="result-date" class="mt-2 pt-2 border-t border-black/10 text-xs font-bold uppercase"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="bg-gray-50 p-4 text-center text-[10px] text-gray-400 font-bold"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>KOHNAN VIETNAM - INTERNAL TOOL</p>
 <p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
 <p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">    </span></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="p-4 bg-gray-50 text-[10px] text-gray-400 text-center uppercase tracking-widest"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>Dành riêng cho nhân viên kho Kohnan Parc Mall</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1">&lt;/div&gt;</p>
 <p class="p2"><br></p>
-<p class="p1">&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>let currentMode = 'date';</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function calculateHSD() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const mfgDateVal = document.getElementById('mfgDate').value;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const expDateVal = document.getElementById('expDate').value;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const type = document.getElementById('type').value;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const resDiv = document.getElementById('result');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const resStatus = document.getElementById('res-status');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const resDetail = document.getElementById('res-detail');</p>
 <p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>function setMode(mode) {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>currentMode = mode;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('opt-date').classList.toggle('active', mode === 'date');</p>
-<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('opt-duration').classList.toggle('active', mode === 'duration');</p>
-<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('input-exp-date').classList.toggle('hidden', mode !== 'date');</p>
-<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('input-exp-duration').classList.toggle('hidden', mode !== 'duration');</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (!mfgDateVal || !expDateVal) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>alert("Vui lòng nhập đầy đủ ngày NSX và HSD!");</p>
+<p class="p1"><span class="Apple-converted-space">                </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
 <p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>function checkHSD() {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const mfgInput = document.getElementById('date-mfg').value;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const itemType = document.getElementById('item-type').value;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const resBox = document.getElementById('result-box');</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const resStatus = document.getElementById('result-status');</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const resDetail = document.getElementById('result-detail');</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const resDateLabel = document.getElementById('result-date');</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const today = new Date();</p>
-<p class="p1"><span class="Apple-converted-space">        </span>today.setHours(0,0,0,0);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const mfg = new Date(mfgDateVal);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const exp = new Date(expDateVal);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const today = new Date();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>today.setHours(0, 0, 0, 0);</p>
 <p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>if (!mfgInput) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>alert("Vui lòng nhập Ngày Sản Xuất!");</p>
-<p class="p1"><span class="Apple-converted-space">            </span>return;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (exp &lt;= mfg) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>alert("Ngày hết hạn phải sau ngày sản xuất!");</p>
+<p class="p1"><span class="Apple-converted-space">                </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
 <p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>const mfgDate = new Date(mfgInput);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>let expDate;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const totalLife = exp - mfg;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const remainingLife = exp - today;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const percentage = (remainingLife / totalLife) * 100;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const required = (type === 'vn') ? 65 : 50;</p>
 <p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>if (currentMode === 'date') {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const expInput = document.getElementById('date-exp').value;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (!expInput) { alert("Vui lòng nhập Ngày Hết Hạn!"); return; }</p>
-<p class="p1"><span class="Apple-converted-space">            </span>expDate = new Date(expInput);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>} else {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const val = parseInt(document.getElementById('duration-val').value);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const unit = document.getElementById('duration-unit').value;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (isNaN(val)) { alert("Vui lòng nhập số lượng thời gian (Tháng/Năm)!"); return; }</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>expDate = new Date(mfgDate);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (unit === 'months') {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>expDate.setMonth(expDate.getMonth() + val);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>resDiv.style.display = 'block';</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (remainingLife &lt;= 0) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>resDiv.className = "status-expired";</p>
+<p class="p1"><span class="Apple-converted-space">                </span>resStatus.innerText = "🚨 QUÁ HẠN";</p>
+<p class="p1"><span class="Apple-converted-space">                </span>resDetail.innerText = "Hàng đã hết hạn sử dụng. Không được nhận.";</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} else if (percentage &gt;= required) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>resDiv.className = "status-pass";</p>
+<p class="p1"><span class="Apple-converted-space">                </span>resStatus.innerText = "✅ ĐẠT (NHẬN)";</p>
+<p class="p1"><span class="Apple-converted-space">                </span>resDetail.innerHTML = `Tỉ lệ HSD còn lại: &lt;b&gt;${percentage.toFixed(1)}%&lt;/b&gt;&lt;br&gt;(Yêu cầu tối thiểu: ${required}%)`;</p>
 <p class="p1"><span class="Apple-converted-space">            </span>} else {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>expDate.setFullYear(expDate.getFullYear() + val);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>resDiv.className = "status-fail";</p>
+<p class="p1"><span class="Apple-converted-space">                </span>resStatus.innerText = "❌ KHÔNG ĐẠT (TRẢ)";</p>
+<p class="p1"><span class="Apple-converted-space">                </span>resDetail.innerHTML = `Tỉ lệ HSD còn lại: &lt;b&gt;${percentage.toFixed(1)}%&lt;/b&gt;&lt;br&gt;(Thấp hơn yêu cầu: ${required}%)`;</p>
 <p class="p1"><span class="Apple-converted-space">            </span>}</p>
 <p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>// Tính toán</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const totalLife = expDate - mfgDate;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const remainingLife = expDate - today;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const percentage = (remainingLife / totalLife) * 100;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const limit = itemType === 'vn' ? 65 : 50;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>resBox.style.display = 'block';</p>
-<p class="p1"><span class="Apple-converted-space">        </span>resDateLabel.innerText = "Hết hạn ngày: " + expDate.toLocaleDateString('vi-VN');</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>if (remainingLife &lt; 0) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>resBox.className = "expired";</p>
-<p class="p1"><span class="Apple-converted-space">            </span>resStatus.innerText = "❌ HÀNG HẾT HẠN";</p>
-<p class="p1"><span class="Apple-converted-space">            </span>resDetail.innerText = "Tuyệt đối không nhận hàng đã quá hạn sử dụng.";</p>
-<p class="p1"><span class="Apple-converted-space">        </span>} else if (percentage &gt;= limit) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>resBox.className = "pass";</p>
-<p class="p1"><span class="Apple-converted-space">            </span>resStatus.innerText = "✅ NHẬN HÀNG";</p>
-<p class="p1"><span class="Apple-converted-space">            </span>resDetail.innerHTML = `Tỷ lệ đạt &lt;b&gt;${percentage.toFixed(1)}%&lt;/b&gt;&lt;br&gt;(Yêu cầu tối thiểu &gt; ${limit}%)`;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>} else {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>resBox.className = "fail";</p>
-<p class="p1"><span class="Apple-converted-space">            </span>resStatus.innerText = "🚫 TRẢ HÀNG";</p>
-<p class="p1"><span class="Apple-converted-space">            </span>resDetail.innerHTML = `Tỷ lệ chỉ còn &lt;b&gt;${percentage.toFixed(1)}%&lt;/b&gt;&lt;br&gt;(Thấp hơn mức quy định ${limit}%)`;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1">&lt;/script&gt;</p>
-<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
 <p class="p1">&lt;/body&gt;</p>
 <p class="p1">&lt;/html&gt;</p>
 </body>
