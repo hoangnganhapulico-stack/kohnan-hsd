@@ -6,54 +6,146 @@
     <title>KOHNAN - KIỂM TRA HSD</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { font-family: sans-serif; background-color: #f0f2f5; display: flex; justify-content: center; padding: 10px; margin: 0; }
-        .app-container { width: 100%; max-width: 500px; background: white; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); overflow: hidden; margin-top: 20px; }
-        .header { background: linear-gradient(135deg, #e11d48 0%, #be123c 100%); color: white; padding: 20px; text-align: center; }
-        .card-body { padding: 20px; }
-        .input-group { margin-bottom: 15px; }
-        label { display: block; font-size: 0.875rem; font-weight: 600; color: #374151; margin-bottom: 5px; text-transform: uppercase; }
-        input, select { width: 100%; padding: 12px; border: 2px solid #e5e7eb; border-radius: 10px; font-size: 1rem; outline: none; transition: border-color 0.2s; box-sizing: border-box; }
-        input:focus { border-color: #e11d48; }
-        .btn-calc { background-color: #e11d48; color: white; width: 100%; padding: 16px; border-radius: 12px; font-weight: bold; font-size: 1.1rem; margin-top: 10px; border: none; cursor: pointer; box-shadow: 0 4px 6px rgba(225, 29, 72, 0.2); }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: #f3f4f6; 
+            display: flex; 
+            justify-content: center; 
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 20px; 
+            margin: 0; 
+        }
+        .app-container { 
+            width: 100%; 
+            max-width: 450px; 
+            background: white; 
+            border-radius: 24px; 
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); 
+            overflow: hidden;
+        }
+        .header { 
+            background: linear-gradient(135deg, #e11d48 0%, #9f1239 100%); 
+            color: white; 
+            padding: 30px 20px; 
+            text-align: center; 
+        }
+        .card-body { padding: 25px; }
+        .input-group { margin-bottom: 20px; }
+        label { 
+            display: block; 
+            font-size: 0.75rem; 
+            font-weight: 700; 
+            color: #4b5563; 
+            margin-bottom: 8px; 
+            text-transform: uppercase; 
+            letter-spacing: 0.05em;
+        }
+        input, select { 
+            width: 100%; 
+            padding: 12px 16px; 
+            border: 2px solid #f3f4f6; 
+            border-radius: 12px; 
+            font-size: 1rem; 
+            outline: none; 
+            transition: all 0.2s; 
+            box-sizing: border-box;
+            background-color: #f9fafb;
+        }
+        input:focus { 
+            border-color: #e11d48; 
+            background-color: white;
+            box-shadow: 0 0 0 4px rgba(225, 29, 72, 0.1);
+        }
+        .btn-calc { 
+            background-color: #e11d48; 
+            color: white; 
+            width: 100%; 
+            padding: 16px; 
+            border-radius: 14px; 
+            font-weight: 800; 
+            font-size: 1.1rem; 
+            margin-top: 10px; 
+            border: none; 
+            cursor: pointer; 
+            transition: transform 0.1s, background-color 0.2s;
+            box-shadow: 0 4px 14px rgba(225, 29, 72, 0.3);
+        }
         .btn-calc:active { transform: scale(0.98); }
-        #result { margin-top: 20px; padding: 20px; border-radius: 15px; display: none; text-align: center; animation: fadeIn 0.3s ease-in; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        .status-pass { background-color: #dcfce7; color: #166534; border: 2px solid #22c55e; }
-        .status-fail { background-color: #fee2e2; color: #991b1b; border: 2px solid #ef4444; }
-        .status-expired { background-color: #111827; color: white; border: 2px solid #000; }
+        
+        .btn-copy-code {
+            background-color: #4b5563;
+            color: white;
+            width: 100%;
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 20px;
+            border: none;
+            cursor: pointer;
+            opacity: 0.8;
+        }
+
+        #result { 
+            margin-top: 25px; 
+            padding: 20px; 
+            border-radius: 18px; 
+            display: none; 
+            text-align: center; 
+            animation: slideUp 0.4s ease-out; 
+        }
+        @keyframes slideUp { 
+            from { opacity: 0; transform: translateY(20px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
+        .status-pass { background-color: #f0fdf4; color: #166534; border: 2px solid #86efac; }
+        .status-fail { background-color: #fef2f2; color: #991b1b; border: 2px solid #fecaca; }
+        .status-expired { background-color: #111827; color: #ffffff; border: 2px solid #374151; }
     </style>
 </head>
 <body>
     <div class="app-container">
         <div class="header">
-            <h1 class="text-2xl font-bold">KOHNAN PARC MALL</h1>
-            <p class="text-xs opacity-90 uppercase tracking-widest mt-1 font-semibold">Công cụ Kiểm tra HSD</p>
+            <h1 class="text-2xl font-black tracking-tight">KOHNAN PARC MALL</h1>
+            <p class="text-[10px] opacity-80 uppercase tracking-[0.2em] mt-1 font-bold">Hệ thống kiểm tra HSD nhận hàng</p>
         </div>
+        
         <div class="card-body">
             <div class="input-group">
-                <label>1. Chọn loại hàng hóa</label>
+                <label>Loại hàng hóa</label>
                 <select id="type">
-                    <option value="vn">Hàng Việt Nam (Nhận > 65%)</option>
-                    <option value="im">Hàng Nhập Khẩu (Nhận > 50%)</option>
+                    <option value="vn">Hàng Việt Nam (Yêu cầu > 65%)</option>
+                    <option value="im">Hàng Nhập Khẩu (Yêu cầu > 50%)</option>
                 </select>
             </div>
+            
             <div class="input-group">
-                <label>2. Ngày Sản Xuất (NSX)</label>
+                <label>Ngày Sản Xuất (NSX)</label>
                 <input type="date" id="mfgDate">
             </div>
+            
             <div class="input-group">
-                <label>3. Ngày Hết Hạn (HSD)</label>
+                <label>Ngày Hết Hạn (HSD)</label>
                 <input type="date" id="expDate">
             </div>
-            <button class="btn-calc" onclick="calculateHSD()">PHÂN TÍCH KẾT QUẢ</button>
+            
+            <button class="btn-calc" onclick="calculateHSD()">KIỂM TRA KẾT QUẢ</button>
+            
             <div id="result">
-                <div id="res-status" class="text-2xl font-black mb-2"></div>
-                <div id="res-detail" class="text-sm font-medium"></div>
-                <div id="res-date-final" class="text-[10px] mt-3 opacity-60 font-bold uppercase"></div>
+                <div id="res-status" class="text-2xl font-black mb-1"></div>
+                <div id="res-detail" class="text-sm font-medium opacity-90"></div>
             </div>
+
+            <!-- Nút bổ sung để copy nhanh toàn bộ file -->
+            <button class="btn-copy-code" id="copyBtn" onclick="copyFullCode()">
+                📋 SAO CHÉP TOÀN BỘ MÃ NGUỒN
+            </button>
+            <p id="copyMsg" class="text-[10px] text-center mt-2 text-green-600 font-bold hidden">Đã copy! Hãy dán vào GitHub của bạn.</p>
         </div>
-        <div class="bg-gray-50 py-4 text-center text-[10px] text-gray-400 font-bold tracking-tighter">
-            WAREHOUSE SYSTEM - KOHNAN VIETNAM
+        
+        <div class="bg-gray-50 py-4 text-center border-t border-gray-100">
+            <p class="text-[9px] text-gray-400 font-bold uppercase tracking-widest">Kohnan Vietnam Internal Use Only</p>
         </div>
     </div>
 
@@ -65,10 +157,9 @@
             const resDiv = document.getElementById('result');
             const resStatus = document.getElementById('res-status');
             const resDetail = document.getElementById('res-detail');
-            const resDateFinal = document.getElementById('res-date-final');
 
             if (!mfgDateVal || !expDateVal) {
-                alert("Vui lòng nhập đầy đủ Ngày Sản Xuất và Ngày Hết Hạn!");
+                alert("Vui lòng chọn đầy đủ Ngày Sản Xuất và Ngày Hết Hạn!");
                 return;
             }
 
@@ -78,7 +169,7 @@
             today.setHours(0, 0, 0, 0);
 
             if (exp <= mfg) {
-                alert("Lỗi: Ngày hết hạn phải sau ngày sản xuất!");
+                alert("Ngày hết hạn không thể trước hoặc bằng ngày sản xuất!");
                 return;
             }
 
@@ -88,20 +179,44 @@
             const required = (type === 'vn') ? 65 : 50;
 
             resDiv.style.display = 'block';
-            resDateFinal.innerText = "Hết hạn vào: " + exp.toLocaleDateString('vi-VN');
 
             if (remainingLife < 0) {
                 resDiv.className = "status-expired";
-                resStatus.innerText = "🚨 HẾT HẠN";
-                resDetail.innerText = "Hàng đã quá hạn sử dụng. Tuyệt đối không nhận.";
+                resStatus.innerText = "🚨 ĐÃ HẾT HẠN";
+                resDetail.innerText = "Sản phẩm đã quá hạn dùng. Tuyệt đối không nhận hàng.";
             } else if (percentage >= required) {
                 resDiv.className = "status-pass";
-                resStatus.innerText = "✅ NHẬN HÀNG";
-                resDetail.innerHTML = `Tỉ lệ HSD còn lại: <b>${percentage.toFixed(1)}%</b><br>(Đủ điều kiện nhập kho)`;
+                resStatus.innerText = "✅ ĐỦ ĐIỀU KIỆN";
+                resDetail.innerHTML = `Tỉ lệ HSD còn lại: <span class="text-lg font-bold">${percentage.toFixed(1)}%</span><br>Đạt chuẩn nhập kho (Yêu cầu > ${required}%)`;
             } else {
                 resDiv.className = "status-fail";
-                resStatus.innerText = "❌ TRẢ HÀNG";
-                resDetail.innerHTML = `Tỉ lệ còn <b>${percentage.toFixed(1)}%</b> (Yêu cầu > ${required}%)<br>Vui lòng từ chối nhận hàng.`;
+                resStatus.innerText = "❌ TỪ CHỐI NHẬN";
+                resDetail.innerHTML = `Tỉ lệ HSD còn lại: <span class="text-lg font-bold">${percentage.toFixed(1)}%</span><br>Không đạt (Yêu cầu > ${required}%)`;
+            }
+        }
+
+        async function copyFullCode() {
+            const code = document.documentElement.outerHTML;
+            const btn = document.getElementById('copyBtn');
+            const msg = document.getElementById('copyMsg');
+            
+            try {
+                // Sử dụng phương thức dự phòng để tương thích tốt hơn
+                const textArea = document.createElement("textarea");
+                textArea.value = "<!DOCTYPE html>\n" + code;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                msg.classList.remove('hidden');
+                btn.innerText = "✅ ĐÃ SAO CHÉP THÀNH CÔNG";
+                setTimeout(() => {
+                    msg.classList.add('hidden');
+                    btn.innerText = "📋 SAO CHÉP TOÀN BỘ MÃ NGUỒN";
+                }, 3000);
+            } catch (err) {
+                alert("Không thể tự động copy, vui lòng bôi đen bằng tay.");
             }
         }
     </script>
